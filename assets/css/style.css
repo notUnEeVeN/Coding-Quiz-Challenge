@@ -1,27 +1,31 @@
+:root {
+    --button-bg: #422564;
+    --button-text: white;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
-    justify-content: center;
-    display: block;
+    height: 100vh;
 }
 
 #start-button {
     width: 100px;
     font-size: 20px;
-    align-items: center;
-    justify-content: center;
     border-radius: 5px;
-    background-color: purple;
-    color: white;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+}
+
+#start-button:hover {
+    cursor: pointer;
 }
 
 p {
     font-weight: bold;
-    text-align: center;
-    display: block;
-    width: 60%;
+    width: 30%;
     padding-bottom: 20px;
     margin: auto;
 }
@@ -31,22 +35,42 @@ h2 {
 }
 
 nav {
-    display: block;
+    margin-right: 10px;
+    transform: translateX(-25px);
 }
 
 nav ul {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     list-style-type: none;
 }
 
-ul li {
-    color: black;
-    transform: translateX(-25px);
-}
-
 ul li a {
     text-decoration: none;
-    color: black;
+
+    color: var(--button-bg);
+}
+
+.quizpage {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 500px;
+    margin: 0 auto;
+    display: none;
+}
+
+.quizpage ol {
+    text-align: left;
+    transform: translateX(25px);
+}
+
+.quizpage ol li {
+    margin-bottom: 5px;
+}
+
+.quizpage ol li button {
+    border-radius: 5px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
 }
