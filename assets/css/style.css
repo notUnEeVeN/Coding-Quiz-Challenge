@@ -51,7 +51,7 @@ ul li a {
     color: var(--button-bg);
 }
 
-.quizpage {
+.quizpage1, .quizpage2, .quizpage3, .quizpage4, .quizpage5 {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -60,16 +60,16 @@ ul li a {
     display: none;
 }
 
-.quizpage ol {
+ol {
     text-align: left;
     transform: translateX(25px);
 }
 
-.quizpage ol li {
+ol li {
     margin-bottom: 5px;
 }
 
-.quizpage ol li button {
+ol li button {
     border-radius: 5px;
     background-color: var(--button-bg);
     color: var(--button-text);
