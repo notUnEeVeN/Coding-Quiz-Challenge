@@ -51,7 +51,7 @@ ul li a {
     color: var(--button-bg);
 }
 
-.quizpage1, .quizpage2, .quizpage3, .quizpage4, .quizpage5 {
+.quizpage {
     display: flex;
     flex-direction: column;
     text-align: center;
