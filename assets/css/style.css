@@ -4,6 +4,8 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -79,6 +81,10 @@ ol li button, .highscores button {
     display: flex;
     flex-direction: column;
     display: none;
+    width: 600px;
+    text-align: left;
+    margin: auto;
+    margin-top: 0;
 }
 
 button:hover {
@@ -94,4 +100,19 @@ button:hover {
 
 .highscores button {
     transform: translateX(20px);
+}
+
+#lastPageButtons {
+    transform: translateX(-20px);
+}
+
+#highScoresList {
+    transform: translateX(0px);
+    text-align: left;
+    padding-left: 20px;
+    background-color: #d0bddb;
+}
+
+#lastPageButtons {
+    display: none;
 }

@@ -3,6 +3,7 @@ let score = timer;
 let gameOver = false;
 let timerPaused = false;
 let timerInterval;
+let scorelist = [];
 
 let questions = [
     {
@@ -43,12 +44,20 @@ document.getElementById("start-button").addEventListener("click", function () {
             if(timer <= 0) {
                 clearInterval(timerInterval);
                 gameOver = true;
+                timer = 0;
                 let quizpage = document.querySelector(".quizpage");
                 quizpage.style.display = "none";
-                showHighScores();
+                endGamePage();
             }
         }
     }, 1000);
+});
+
+let highscoresLink = document.getElementById('view-highscores');
+
+highscoresLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    VHSbuttonF();
 });
 
 
@@ -185,7 +194,7 @@ function showQuestion5() {
     let quizpage = document.querySelector(".quizpage");
     quizpage.addEventListener('click', function(event) {
         if(event.target.tagName === 'BUTTON') {
-            showHighScores();
+            endGamePage();
             let chosenAnswer = parseInt(event.target.getAttribute("answer-number"));
             if(chosenAnswer != 4) {
                 timer -= 10; 
@@ -194,26 +203,69 @@ function showQuestion5() {
     }, {once: true});
 }
 
-function showHighScores () {
+function endGamePage () {
     timerPaused = true;
     document.querySelector(".quizpage").style.display = "none";
     document.querySelector(".highscores").style.display = "block";
 
-    localStorage.setItem("timer", timer);
-
     document.getElementById("finalscore").textContent += `${timer}`
-    
 
     document.getElementById("submit-button").addEventListener("click", function () {
         document.querySelector(".initials").style.display = "none";
         document.getElementById("finalscore").style.display = "none";
         let initials = document.getElementById("initialsInput").value;
-        localStorage.setItem("userInitials", initials);
+        
+        let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+        
+        highScores.push({
+            initials: initials,
+            score: timer
+        });
 
         
+        highScores.sort((a, b) => b.score - a.score);
 
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+
+        showHighScores();
 
     }, {once: true});
+}
+
+function showHighScores() {
+    let highScoresList = document.getElementById('highScoresList');
+    highScoresList.innerHTML = '';
+
+    let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    for (let i = 0; i < highScores.length; i++) {
+        let newLi = document.createElement("li");
+        newLi.textContent = `${highScores[i].initials} - ${highScores[i].score}`;
+        highScoresList.appendChild(newLi);
+    }
+
+    document.getElementById("lastPageButtons").style.display = "block";
+
+    document.getElementById("go-back-button").addEventListener("click", function () {
+        location.reload();
+
+    });
+    
+    document.getElementById("clear-highscores-button").addEventListener("click", function () {
+        localStorage.removeItem("highScores");
+    
+        document.getElementById("highScoresList").innerHTML = "";
+    
+    }, {once: true});
+}
 
 
+function VHSbuttonF () {
+    document.querySelector(".homepage").style.display = "none";
+    document.querySelector(".initials").style.display = "none";
+    document.querySelector(".quizpage").style.display = "none";
+    document.getElementById("finalscore").style.display = "none";
+    document.querySelector(".highscores").style.display = "block";
+    clearInterval(timerInterval)
+    timer = 0;
+    showHighScores();
 }

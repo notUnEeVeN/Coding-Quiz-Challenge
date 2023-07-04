@@ -7,7 +7,7 @@
 <body>
     <nav>
         <ul>
-            <li> <a href = #>View Highscores</a></li>
+            <li> <a href = # id="view-highscores">View Highscores</a></li>
             <li id="timer">Time left: </li>
         </ul>
     </nav>
@@ -30,12 +30,16 @@
         <h1>Highscores</h1>
         <p id="finalscore">Your final score is: </p>
         <div class="initials">
-            <label>Enter intials: <input type="text"></label>
+            <label>Enter intials: <input type="text" id="initialsInput"></label>
             <button id="submit-button">submit</button>
         </div>
-        <div class="leaderboard">
-            <ol>
+        <div>
+            <ol id="highScoresList">
             </ol>
+            <div id="lastPageButtons">
+                <button id="go-back-button">Go back</button>
+                <button id="clear-highscores-button">Clear Highscores</button>
+            </div>
         </div>
     </section>
     <script src="./assets/js/script.js"></script>
