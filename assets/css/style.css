@@ -69,8 +69,29 @@ ol li {
     margin-bottom: 5px;
 }
 
-ol li button {
+ol li button, .highscores button {
     border-radius: 5px;
     background-color: var(--button-bg);
     color: var(--button-text);
+}
+
+.highscores {
+    display: flex;
+    flex-direction: column;
+    display: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.initials {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.highscores button {
+    transform: translateX(20px);
 }

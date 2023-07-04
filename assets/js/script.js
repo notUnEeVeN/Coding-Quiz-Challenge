@@ -1,6 +1,7 @@
 let timer = 0;
 let score = timer;
 let gameOver = false;
+let timerPaused = false;
 let timerInterval;
 
 let questions = [
@@ -35,15 +36,17 @@ document.getElementById("start-button").addEventListener("click", function () {
     document.getElementById("timer").textContent = `Time left: ${timer}` ;
     clearInterval(timerInterval);
     timerInterval = setInterval(function() {
-        timer--
-        document.getElementById("timer").textContent = `Time left: ${timer}`;
+        if (!timerPaused) {
+            timer--
+            document.getElementById("timer").textContent = `Time left: ${timer}`;
 
-        if(timer <= 0) {
-            clearInterval(timerInterval);
-            gameOver = true;
-            let quizpage = document.querySelector(".quizpage");
-            quizpage.style.display = "none";
-            showHighScores();
+            if(timer <= 0) {
+                clearInterval(timerInterval);
+                gameOver = true;
+                let quizpage = document.querySelector(".quizpage");
+                quizpage.style.display = "none";
+                showHighScores();
+            }
         }
     }, 1000);
 });
@@ -182,15 +185,35 @@ function showQuestion5() {
     let quizpage = document.querySelector(".quizpage");
     quizpage.addEventListener('click', function(event) {
         if(event.target.tagName === 'BUTTON') {
+            showHighScores();
             let chosenAnswer = parseInt(event.target.getAttribute("answer-number"));
             if(chosenAnswer != 4) {
                 timer -= 10; 
             }
-            showHighScores();
         }
     }, {once: true});
 }
 
 function showHighScores () {
+    timerPaused = true;
+    document.querySelector(".quizpage").style.display = "none";
+    document.querySelector(".highscores").style.display = "block";
+
+    localStorage.setItem("timer", timer);
+
+    document.getElementById("finalscore").textContent += `${timer}`
     
+
+    document.getElementById("submit-button").addEventListener("click", function () {
+        document.querySelector(".initials").style.display = "none";
+        document.getElementById("finalscore").style.display = "none";
+        let initials = document.getElementById("initialsInput").value;
+        localStorage.setItem("userInitials", initials);
+
+        
+
+
+    }, {once: true});
+
+
 }
