@@ -1,99 +1,23 @@
-# 04 Web APIs: Code Quiz
+# Tybalt Mallet's Coding Quiz Challenge
 
-## Your Task
+## Description
+This is the Module 4 challenge for the fourth week of the UCB coding camp. For this weeks challenge we had to create a website hosting a coding quiz from scratch, with only a gif of a completed website to go off of. We had to use what we learned this week about webAPIs to store the data from our tests locally, as well as changing elements and styles through javascript as the user progresses from one page to the next through the quiz. When the user begins the quiz, a timer starts on the top right, and every answer they get wrong in the 5 question tests takes off 10 seconds from the timer, and your final score is based on the amount of time left, so it is essentially a quiz of who can get the most answers accurately the fastest. At the end of every game the user is then prompted to input their initials, and their highscores and initials will be saved to a leaderboard locally, and sorted in the proper order, so even if the page is refreshed or if multiple people want to play and compare high scores, the website will function perfectly. The user is also able to clear the high scores, play again once their game is finished, or go directly to the high score leaderboard at anytime on the website. 
+## Project Link
 
-At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
+https://notuneeven.github.io/Coding-Quiz-Challenge/
 
-To help familiarize you with these tests and allow you to use the skills covered in this module, this Challenge invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. 
+## Screenshot of Website
 
-This week’s coursework will equip you with all the skills you need to succeed in this assignment.
+![Alt text](./assets/images/Capture.PNG)
 
-## User Story
+## Usage 
 
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+This website can be used as a way to compare peoples knowledge of basic JavaScript against one another, through a short timed quiz. It will also as usual be a great way for me to come back and study the basics of JavaScript and web API's in the future, as looking at the code filled with comments explaining how things work and why, it will be very easy for me to see the direct correlation between code and it's effect on the website. 
 
-## Acceptance Criteria
+## Credits 
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
-```
+N/A
 
-## Mock-Up
+## License 
 
-The following animation demonstrates the application functionality:
-
-![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/04-web-apis-homework-demo.gif)
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+N/A

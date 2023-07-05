@@ -74,7 +74,7 @@ highscoresLink.addEventListener('click', function(event) {
 
 //the following blocks of code enter the questions/answers and functionality to the 5 quiz pages 
 function showQuestion1() {
-    //setting the text content of the quiz page shell to the correct questions and answers using our previously declard array of objects
+    // setting the text content of the quiz page shell to the correct questions and answers using our previously declared array of objects
     document.getElementById("question").textContent = questions[0].question;
     
     document.getElementById("a1").textContent = questions[0].answers[0];
@@ -88,18 +88,26 @@ function showQuestion1() {
 
     document.getElementById("a4").textContent = questions[0].answers[3];
     document.getElementById("a4").setAttribute("answer-number", 4)
+    //this links to the html element I created to tell the user wether their previous question was correct or incorrect like in the gif
+    let result = document.getElementById("result");
+    result.textContent = "";
 
-    let quizpage = document.querySelector(".quizpage");
+    //changed the query selector from the .quizpage class to just the .ol class which contains only the ordered list elements, fixing the glitch of if the user pressed somewhere on the page on accident, the functionality of the buttons would stop working as the once: true parameter would be consumed
+    let quizpage = document.querySelector(".ol");
+
     quizpage.addEventListener('click', function(event) {
         if(event.target.tagName === 'BUTTON') {
             let chosenAnswer = parseInt(event.target.getAttribute("answer-number"));
             if(chosenAnswer != 3) {
                 timer -= 10; 
+                document.getElementById("line").style.display = "block";
+                result.textContent = "Wrong!";
+            } else {
+                result.textContent = "Correct!";
+                document.getElementById("line").style.display = "block";
             }
             showQuestion2();
-        }
-        //found this line on the internet when troubleshooting my code, makes it so the listener event applies only once, and won't still be there for the rest of the quiz questions and stack on top of eachother
-        //I was stuck for so long, this SAVED MY CODE
+        } 
     }, {once: true});
 }
 
@@ -119,17 +127,21 @@ function showQuestion2(){
     document.getElementById("a4").textContent = questions[1].answers[3];
     document.getElementById("a4").setAttribute("answer-number", 4)
 
-    let quizpage = document.querySelector(".quizpage");
-    let buttons = document.querySelectorAll(".quizpage button");
+    let result = document.getElementById("result");
+
+    let quizpage = document.querySelector(".ol");
 
     quizpage.addEventListener('click', function(event) {
         if(event.target.tagName === 'BUTTON') {
             let chosenAnswer = parseInt(event.target.getAttribute("answer-number"));
             if(chosenAnswer != 2) {
                 timer -= 10; 
+                result.textContent = "Wrong!";
+            } else {
+                result.textContent = "Correct!";
             }
             showQuestion3();
-        }
+        } 
     }, {once: true});
 }
 
@@ -149,17 +161,22 @@ function showQuestion3() {
     document.getElementById("a4").textContent = questions[2].answers[3];
     document.getElementById("a4").setAttribute("answer-number", 4)
 
-    let quizpage = document.querySelector(".quizpage");
+    let result = document.getElementById("result");
+
+    let quizpage = document.querySelector(".ol");
+
     quizpage.addEventListener('click', function(event) {
         if(event.target.tagName === 'BUTTON') {
             let chosenAnswer = parseInt(event.target.getAttribute("answer-number"));
             if(chosenAnswer != 4) {
                 timer -= 10; 
+                result.textContent = "Wrong!";
+            } else {
+                result.textContent = "Correct!";
             }
             showQuestion4();
-        }
+        } 
     }, {once: true});
-
 }
 
 function showQuestion4() {
@@ -177,15 +194,21 @@ function showQuestion4() {
     document.getElementById("a4").textContent = questions[3].answers[3];
     document.getElementById("a4").setAttribute("answer-number", 4)
 
-    let quizpage = document.querySelector(".quizpage");
+    let result = document.getElementById("result");
+
+    let quizpage = document.querySelector(".ol");
+
     quizpage.addEventListener('click', function(event) {
         if(event.target.tagName === 'BUTTON') {
             let chosenAnswer = parseInt(event.target.getAttribute("answer-number"));
             if(chosenAnswer != 3) {
                 timer -= 10; 
+                result.textContent = "Wrong!";
+            } else {
+                result.textContent = "Correct!";
             }
             showQuestion5();
-        }
+        } 
     }, {once: true});
 }
 
@@ -204,28 +227,37 @@ function showQuestion5() {
     document.getElementById("a4").textContent = questions[4].answers[3];
     document.getElementById("a4").setAttribute("answer-number", 4)
 
-    let quizpage = document.querySelector(".quizpage");
+    let result = document.getElementById("result");
+
+    let quizpage = document.querySelector(".ol");
+
     quizpage.addEventListener('click', function(event) {
         if(event.target.tagName === 'BUTTON') {
-            //last quiz page executes the endgamepage function to finish the game
-            endGamePage();
             let chosenAnswer = parseInt(event.target.getAttribute("answer-number"));
             if(chosenAnswer != 4) {
                 timer -= 10; 
+                result.textContent = "Wrong!";
+            } else {
+                result.textContent = "Correct!";
             }
-        }
+            endGamePage();
+        } 
     }, {once: true});
 }
+
 
 //this is the function that executes to display the last page
 function endGamePage () {
     //pauses the timer, as the interval doesn't execute if this is true
     timerPaused = true;
+    document.getElementById("timer").textContent = `Time left: ${timer}`;
+
     //hides the quizpage and makes the highscore page appear
     document.querySelector(".quizpage").style.display = "none";
     document.querySelector(".highscores").style.display = "block";
     //adds whatever the paused timer number is to the line that displays your final score
     document.getElementById("finalscore").textContent += `${timer}`
+
     //adding the funcitonality to the submit button so they can submit their initials
     document.getElementById("submit-button").addEventListener("click", function () {
         //the submit button also hides all the elements except the header of the endgame page, to replace it with the high score list new buttons

@@ -1,4 +1,5 @@
 :root {
+    --hover-bg: #bd60e7;
     --button-bg: #422564;
     --button-text: white;
 }
@@ -14,6 +15,7 @@ body {
 }
 
 #start-button {
+    border: 0;
     width: 100px;
     font-size: 20px;
     border-radius: 5px;
@@ -22,6 +24,7 @@ body {
 }
 
 #start-button:hover {
+    background-color: var(--hover-bg);
     cursor: pointer;
 }
 
@@ -37,6 +40,7 @@ h2 {
 }
 
 nav {
+    font-size: large;
     margin-right: 10px;
     transform: translateX(-25px);
 }
@@ -50,13 +54,13 @@ nav ul {
 ul li a {
     text-decoration: none;
 
-    color: var(--button-bg);
+    color: var(--hover-bg);
 }
 
 .quizpage {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     width: 500px;
     margin: 0 auto;
     display: none;
@@ -64,14 +68,31 @@ ul li a {
 
 ol {
     text-align: left;
-    transform: translateX(25px);
+    transform: translateX(-25px);
 }
 
 ol li {
     margin-bottom: 5px;
 }
 
+ol li button {
+    height: 30px;
+    width: 200px;
+    font-size: 15px;
+}
+
+.highscores button {
+    font-size: 15px;
+    text-align: left;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: auto;
+    width: auto;
+}
+
 ol li button, .highscores button {
+    border: 0;
     border-radius: 5px;
     background-color: var(--button-bg);
     color: var(--button-text);
@@ -88,6 +109,7 @@ ol li button, .highscores button {
 
 button:hover {
     cursor: pointer;
+    background-color: var(--hover-bg);
 }
 
 .initials {
@@ -114,4 +136,13 @@ button:hover {
 
 #lastPageButtons {
     display: none;
+}
+
+#line {
+    display: none;
+}
+
+/*set the width of the ol items on the quizpages to precisely the width of the visible buttons, so that clicking to the right of them where the button isn't apparent doesn't consume the once:true parameter*/
+.ol {
+    width: 200px;
 }

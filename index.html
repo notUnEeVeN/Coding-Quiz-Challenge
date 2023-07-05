@@ -22,12 +22,17 @@
     <!--this is the "shell" I created for all quizpages, that all share the same formatting and styling, then in the javascript, I have targed the elements by their ID and put in the appropriate questions/answers-->
     <section class="quizpage">
         <h1 id="question"></h1>
-        <ol>
+        <ol class="ol">
             <li><button id="a1"></button></li>
             <li><button id="a2"></button></li>
             <li><button id="a3"></button></li>
             <li><button id="a4"></button></li>
         </ol>
+        <!--found hr html element on w3 HTML <hr> Tag webpage when researching how to best make a horizontal line-->
+        <div id="line">
+            <hr>
+            <div id="result"></div>
+        </div>
     </section> 
     <!--this is the final highscores page, that is split into two divs, one for the screen when the user finishes the game and reads their score/inputs their initials, and one for when the highscores leaderboard is displayed-->
     <section class="highscores">
