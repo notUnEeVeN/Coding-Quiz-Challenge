@@ -82,7 +82,6 @@ ol li button, .highscores button {
     flex-direction: column;
     display: none;
     width: 600px;
-    text-align: left;
     margin: auto;
     margin-top: 0;
 }

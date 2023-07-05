@@ -5,18 +5,21 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
+    <!--nav bar section, with the button to send the user to the highscore page and the timer that starts when the start button is pressed-->
     <nav>
         <ul>
             <li> <a href = # id="view-highscores">View Highscores</a></li>
             <li id="timer">Time left: </li>
         </ul>
     </nav>
+    <!--this is the first page that appears when the website is first opened, the "homepage" contains information about the game, and the start button to commence it-->
     <section class="homepage">
         <h1>Coding Quiz Challenge</h1>
         <p>Try to answer the following questions within the time limit. Keep in mind that incorrect answers will penalize your score time by 10 seconds!</p>
         <button id="start-button">Start</button>
         <h2 id="word-display">Press Start to play</h2>
     </section>
+    <!--this is the "shell" I created for all quizpages, that all share the same formatting and styling, then in the javascript, I have targed the elements by their ID and put in the appropriate questions/answers-->
     <section class="quizpage">
         <h1 id="question"></h1>
         <ol>
@@ -26,6 +29,7 @@
             <li><button id="a4"></button></li>
         </ol>
     </section> 
+    <!--this is the final highscores page, that is split into two divs, one for the screen when the user finishes the game and reads their score/inputs their initials, and one for when the highscores leaderboard is displayed-->
     <section class="highscores">
         <h1>Highscores</h1>
         <p id="finalscore">Your final score is: </p>
